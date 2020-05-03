@@ -1,0 +1,49 @@
+from tkinter import* 
+from random import*
+root = Tk()
+root.title("Welcome to my app")
+root.geometry("400x275+500+0")
+frame1 = Frame(root)
+frame2 = Frame(root)
+
+
+
+TitleLabel = Label(frame1, bg = "orange" , fg = "white", width = 35, padx  = 20, pady = 20, text = "Welcome to Password Manager", font=("Times", "14", "bold italic"))
+TitleLabel.grid(columnspan = 2) 
+def Screen1():
+    global frame1
+    global frame2
+    frame2.grid_remove()
+    frame1.grid(row=0, column=0)
+
+
+    button1 = Button(frame1, text = "Next", anchor = W, command = Screen2)
+    button1.grid(column = 0, row = 11) 
+    label2 = Label(frame1, text = "Gmail", width = 20, font=("Times", "14", "bold italic"))
+    label2.grid(column = 0, row = 3)
+    textbox1 = Entry(frame1, width = 20)
+    textbox1.grid(column = 0, row = 7)
+    label3 = Label(frame1, text = "Password", width = 20, font=("Times", "14", "bold italic"))
+    label3.grid(column = 0, row = 6)
+    textbox2 = Entry(frame1, width = 20)
+    textbox2.grid(column = 0, row = 5) 
+
+def Screen2():
+    global frame1
+    global frame2
+    frame1.grid_remove()
+    frame2.grid(row=0,column=0)
+
+
+    home_btn = Button(frame2, text = "Home", anchor = W, command = Screen1, relief = RIDGE)
+    home_btn.grid(row=5, column=0)
+ 
+
+
+    mainloop()
+
+
+
+
+Screen1()
+root.mainloop()
